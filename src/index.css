@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Fredoka:wght@600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --honey-50:  #FFF8EC;
+    --honey-100: #FDEFD3;
+    --honey-300: #F7C873;
+    --honey-500: #F59E0B;
+    --honey-600: #D97706;
+    --honey-700: #B45309;
+    --charcoal-900: #1C1917;
+    --charcoal-800: #292524;
+    --gray-700: #44403C;
+    --gray-500: #78716C;
+    --gray-300: #D6D3D1;
+  }
+
+  html {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-honey-50 m-0 p-0;
+    color: #6b2a06;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Sora', sans-serif;
+    color: #6b2a06;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-honey-500 text-white px-6 py-3 rounded-btn font-semibold
+           hover:bg-honey-600 active:bg-honey-700 transition-colors
+           focus:outline-none focus:ring-2 focus:ring-honey-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-charcoal-800 border border-charcoal-200 px-6 py-3
+           rounded-btn font-semibold hover:bg-charcoal-50 active:bg-charcoal-100
+           transition-colors focus:outline-none focus:ring-2 focus:ring-charcoal-300
+           focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-sm {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .btn-icon {
+    @apply p-2 rounded-full hover:bg-honey-50 transition-colors;
+  }
+
+  .card {
+    @apply bg-white rounded-card shadow-card border border-charcoal-200 p-6;
+  }
+
+  .card-hover {
+    @apply card hover:shadow-card-hover transition-shadow;
+  }
+
+  .stat-card {
+    @apply card flex flex-col gap-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+
+  .badge-success {
+    @apply badge bg-green-50 text-success border border-green-200;
+  }
+
+  .badge-warning {
+    @apply badge bg-amber-50 text-honey-700 border border-amber-200;
+  }
+
+  .badge-danger {
+    @apply badge bg-red-50 text-danger border border-red-200;
+  }
+
+  .badge-neutral {
+    @apply badge bg-charcoal-50 text-charcoal-500 border border-charcoal-200;
+  }
+
+  .input {
+    @apply w-full px-4 py-3 rounded-btn border border-charcoal-200 bg-white
+           text-charcoal-800 placeholder-charcoal-400
+           focus:outline-none focus:ring-2 focus:ring-honey-500 focus:border-honey-500
+           transition-colors;
+  }
+
+  .proof-box {
+    @apply bg-charcoal-800 text-charcoal-200 rounded-card p-4 font-mono text-sm;
+  }
+
+  .section-label {
+    @apply text-[10px] font-extrabold uppercase tracking-widest text-charcoal-400;
+  }
+
+  .page-container {
+    @apply max-w-content mx-auto px-4 sm:px-6 lg:px-8 py-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  aside, nav, header, footer, .no-print, button:not(.print-include) {
+    display: none !important;
+  }
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    background: white !important;
+  }
+  .print-page {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}
